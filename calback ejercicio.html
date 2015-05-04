@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<script type="text/javascript">
+	
+  var people = [
+            {name: 'pedro', age: 29, skills: ['C#', 'Asp.Net', 'OPP']  },
+            {name: 'juan', age: 25, skills: ['Ruby', 'rails']  },
+            {name: 'pablo', age: 26, skills: ['PHP', 'Drink tea']  },
+            {name: 'pancho', age: 30, skills: ['PHP', 'Javascript', 'AngularJs']  },
+            {name: 'topo', age: 28, skills: ['PHP', 'F#', 'IOS', 'Android']  }
+        ];
+        Array.prototype.each = function (callback) {
+        for (var i = 0; i < this.length; i++) {
+            callback.call(this, this[i], i);
+            }
+        };
+
+    var logPerson = function(x, i) {
+            console.log((i + 1) + '.- ' + x.name + ' is ' + x.age + ' years old');
+        };
+
+
+        Array.prototype.where = function (callback){
+            this.knowsPHP = [];
+
+            for (var i = 0; i < this.length; i++) {
+                 callback.apply(this, [this[i]]);
+            }
+
+            return this.knowsPHP;
+        };
+
+
+
+
+        console.log('hire the following guys');
+
+        people.where(function(dev) {
+            var skills =  dev.skills.where(function(skill) {
+                if (skill === 'PHP') {
+                    this.knowsPHP.push(dev);
+                }
+            });
+            this.knowsPHP = this.knowsPHP.concat(skills);
+        }).each(logPerson);
+
+   //  http://jsfiddle.net/7aduxxpt/2/
+
+        //Expected output
+        //1.- pedro is 29 years old
+        //2.- juan is 25 years old
+
+
+
+
+</script>
+<body>
+	
+</body>
+</html>

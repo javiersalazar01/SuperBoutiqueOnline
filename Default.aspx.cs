@@ -9,6 +9,12 @@ public partial class _Default : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-
+        string tipo = (string)Session["tipo"];
+        
+        if (!IsPostBack)
+        {
+            if (tipo == "" || tipo == null)
+                Response.Redirect("~/Login.aspx");
+        }
     }
 }

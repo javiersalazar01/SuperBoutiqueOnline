@@ -24,7 +24,7 @@ public class SQLConnector
     {
         if (util == null)
         {
-            util = new SQLConnector("Data Source=JAVIER-PC\\SQLEXPRESS; Initial Catalog=BD_boutique; User ID=sa; Password=163955");
+            util = new SQLConnector("Data Source=DANI;Initial Catalog=BD_boutique;Integrated Security=True");
         }
         return util;
     }

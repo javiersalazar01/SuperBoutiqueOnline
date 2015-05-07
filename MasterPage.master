@@ -15,7 +15,7 @@
     <div class="container" > 
         <form id="form1" runat="server">
             <div class="center">
-                <asp:Menu cssClass= ".menu" ID="Menu1" runat="server" BackColor="#B5C7DE" DynamicHorizontalOffset="2" Font-Names="Verdana" Font-Size="0.8em" ForeColor="#284E98" StaticSubMenuIndent="10px" Orientation="Horizontal" Width="100%">
+                <asp:Menu cssClass= ".menu" ID="Menu1" runat="server" Font-Size="0.8em" Orientation="Horizontal" Width="100%">
                     <DynamicHoverStyle BackColor="#284E98" ForeColor="White" />
                     <DynamicMenuItemStyle HorizontalPadding="10px" VerticalPadding="2px" />
                     <DynamicMenuStyle BackColor="#B5C7DE" />
@@ -24,6 +24,7 @@
                     <StaticMenuItemStyle HorizontalPadding="10px" VerticalPadding="2px" />
                     <StaticSelectedStyle BackColor="#507CD1" />
                 </asp:Menu>
+                <br />
             </div>
 
             <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">

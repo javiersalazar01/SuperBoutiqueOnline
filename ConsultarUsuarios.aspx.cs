@@ -13,6 +13,11 @@ public partial class ConsultarUsuarios : System.Web.UI.Page
         {
             selectAll();
         }
+        string tipo = (string)Session["tipo"];
+        if (tipo != "2")
+        {
+            Response.Redirect("~/Default.aspx");
+        }
     }
 
     protected void Button2_Click(object sender, EventArgs e)

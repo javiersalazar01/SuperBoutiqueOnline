@@ -4,11 +4,13 @@
 
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
-    <asp:FormView ID="FormView1" runat="server" DataKeyNames="id_articulo" DataSourceID="SqlDataSource1" DefaultMode="Insert">
+    <asp:FormView ID="FormView1" CssClass="container" runat="server" DataKeyNames="id_articulo" DataSourceID="SqlDataSource1" DefaultMode="Insert">
         <EditItemTemplate>
+            
             id_articulo:
             <asp:Label ID="id_articuloLabel1" runat="server" Text='<%# Eval("id_articulo") %>' />
             <br />
+
             descripcion:
             <asp:TextBox ID="descripcionTextBox" runat="server" Text='<%# Bind("descripcion") %>' />
             <br />
@@ -25,26 +27,53 @@
             &nbsp;<asp:LinkButton ID="UpdateCancelButton" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancelar" />
         </EditItemTemplate>
         <InsertItemTemplate>
-            descripcion:
-            <asp:TextBox ID="descripcionTextBox" runat="server" Text='<%# Bind("descripcion") %>' />
-            <br />
-            precioVenta:
-            <asp:TextBox ID="precioVentaTextBox" runat="server" Text='<%# Bind("precioVenta", "{0:C}") %>' ValidateRequestMode="Enabled" />
-            <asp:RangeValidator ControlToValidate="precioVentaTextBox" ID="RangeValidator2" runat="server" ErrorMessage="RangeValidator" Type="Double" Text="Solo Numeros"></asp:RangeValidator>
+            <fieldset>
+              <legend>Agregar artículos</legend>
+            <div class="form-group">
+                <asp:Label ID="Label1" runat="server" CssClass="col-md-4 control-label" Text="Descripción"></asp:Label>
+                <div class="col-md-4">
+                  <asp:TextBox ID="descripcionTextBox" CssClass="form-control input-md" runat="server" Text='<%# Bind("descripcion") %>' />
 
-            <br />
-            precioCompra:
-            <asp:TextBox ID="precioCompraTextBox" runat="server" Text='<%# Bind("precioCompra", "{0:C}") %>' ValidateRequestMode="Enabled" />
+                </div>
+            </div>
+       
+            <div class="form-group">
+                <asp:Label ID="Label2" runat="server" CssClass="col-md-4 control-label" Text="Precio Venta:"></asp:Label>
+                <div class="col-md-2">
+                   <asp:TextBox ID="precioVentaTextBox" CssClass="form-control input-md" runat="server" Text='<%# Bind("precioVenta", "{0:C}") %>' ValidateRequestMode="Enabled" />
+                   <asp:RangeValidator ControlToValidate="precioVentaTextBox" ID="RangeValidator2" runat="server" ErrorMessage="RangeValidator" Type="Double" Text="Solo Numeros"></asp:RangeValidator>
+                </div>
+            </div>
+          
+            <div class="form-group">
+                <asp:Label ID="Label3" runat="server" CssClass="col-md-4 control-label" Text="Precio Compra:"></asp:Label>
+                <div class="col-md-2">
+                    
+            <asp:TextBox ID="precioCompraTextBox" CssClass="form-control input-md"  runat="server" Text='<%# Bind("precioCompra", "{0:C}") %>' ValidateRequestMode="Enabled" />
             <asp:RangeValidator ControlToValidate="precioCompraTextBox" ID="RangeValidator3" runat="server" ErrorMessage="RangeValidator" Type="Double" Text="Solo Numeros"></asp:RangeValidator>
-            <br />
-            cantidadStock:
-            <asp:TextBox ID="cantidadStockTextBox" runat="server" Text='<%# Bind("cantidadStock", "{0:N}") %>' ValidateRequestMode="Enabled" />
+          
+                </div>
+            </div>     
+
+            <div class="form-group">
+                <asp:Label ID="Label4" runat="server" CssClass="col-md-4 control-label" Text="Cantidad Stock:"></asp:Label>
+                <div class="col-md-2">
+                    <asp:TextBox ID="cantidadStockTextBox" CssClass="form-control input-md"  runat="server" Text='<%# Bind("cantidadStock", "{0:N}") %>' ValidateRequestMode="Enabled" />
             <asp:RangeValidator ControlToValidate="cantidadStockTextBox" ID="RangeValidator1" runat="server" ErrorMessage="RangeValidator" Type="Double" Text="Solo Numeros"></asp:RangeValidator>
 
-            <br />
-            <asp:Button ID="InsertButton" runat="server" CausesValidation="True" CommandName="Insert" Text="Insertar" ValidateRequestMode="Enabled" />
-            &nbsp;<asp:Button ID="InsertCancelButton" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancelar" />
-        </InsertItemTemplate>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <asp:Label ID="Label5" runat="server" CssClass="col-md-4 control-label" Text=""></asp:Label>
+                <div class="col-md-4">
+                    <asp:Button ID="InsertButton" runat="server" CssClass="btn btn-success"  CausesValidation="True" CommandName="Insert" Text="Insertar" ValidateRequestMode="Enabled" />
+            &nbsp;<asp:Button ID="InsertCancelButton" runat="server" CssClass="btn btn-danger"  CausesValidation="False" CommandName="Cancel" Text="Cancelar" />
+     
+                </div>
+            </div>
+            </fieldset>
+               </InsertItemTemplate>
         <ItemTemplate>
             id_articulo:
             <asp:Label ID="id_articuloLabel" runat="server" Text='<%# Eval("id_articulo") %>' />

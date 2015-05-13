@@ -3,14 +3,16 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
-    <div class="buscar">   
-        <asp:Label ID="Label1" runat="server" Text="Nombre: "></asp:Label>
-        <asp:TextBox ID="nombre" runat="server"></asp:TextBox>
-        <asp:Button ID="Button1" runat="server" Text="Buscar" />
-        <asp:Button ID="Button2" runat="server" Text="Todos Los Registros" OnClick="Button2_Click" />
+        
+    <div class="form-group">   
+        <asp:Label ID="Label1" runat="server" CssClass="col-md-3 control-label" Text="Nombre: "></asp:Label>
+
+        <asp:TextBox ID="nombre" CssClass="col-md-3 control-label" runat="server"></asp:TextBox>
+         &nbsp;  <asp:Button ID="Button1" CssClass="btn btn-default" runat="server" Text="Buscar" />
+        <asp:Button ID="Button2" CssClass="btn btn-info"  runat="server" Text="Todos Los Registros" OnClick="Button2_Click" />
     </div>
     
-    <asp:GridView ID="GridView1" runat="server" DataSourceID="SqlDataSource1" AllowSorting="True" AutoGenerateColumns="False" BackColor="White" BorderColor="#DEDFDE" BorderStyle="None" BorderWidth="1px" CellPadding="4" DataKeyNames="id_usuario" ForeColor="Black" GridLines="Vertical" OnRowCancelingEdit="GridView1_RowCancelingEdit" OnRowDeleted="GridView1_RowDeleted" OnRowEditing="GridView1_RowEditing">
+    <asp:GridView ID="GridView1" CssClass="mGrid" runat="server" DataSourceID="SqlDataSource1" AllowSorting="True" AutoGenerateColumns="False" BackColor="White" BorderColor="#DEDFDE" BorderStyle="None" BorderWidth="1px" CellPadding="4" DataKeyNames="id_usuario" ForeColor="Black" GridLines="Vertical" OnRowCancelingEdit="GridView1_RowCancelingEdit" OnRowDeleted="GridView1_RowDeleted" OnRowEditing="GridView1_RowEditing">
         <AlternatingRowStyle BackColor="White" />
         <Columns>
             <asp:BoundField DataField="id_usuario" HeaderText="id_usuario" InsertVisible="False" ReadOnly="True" SortExpression="id_usuario" />

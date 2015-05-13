@@ -5,7 +5,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
     
-    <asp:FormView ID="FormView1" runat="server" DataKeyNames="id_cliente" DataSourceID="SqlDataSource1" DefaultMode="Insert" OnPageIndexChanging="FormView1_PageIndexChanging">
+    <asp:FormView ID="FormView1" CssClass="container" runat="server" DataKeyNames="id_cliente" DataSourceID="SqlDataSource1" DefaultMode="Insert" OnPageIndexChanging="FormView1_PageIndexChanging">
         <EditItemTemplate>
             id_cliente:
             <asp:Label ID="id_clienteLabel1" runat="server" Text='<%# Eval("id_cliente") %>' />
@@ -32,33 +32,74 @@
             &nbsp;<asp:Button ID="UpdateCancelButton" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancelar" />
         </EditItemTemplate>
         <InsertItemTemplate>
-            nombre:
-            <asp:TextBox ID="nombreTextBox" runat="server" Text='<%# Bind("nombre") %>' />
+          <fieldset>
+            <legend>Agregar cliente</legend>
+            <div class="form-group">
+
+                <asp:Label ID="Label1" runat="server"  CssClass="col-md-4 control-label" Text="Nombre:"></asp:Label>
+                <div class="col-md-4">
+                        <asp:TextBox ID="nombreTextBox" CssClass="form-control input-md" runat="server" Text='<%# Bind("nombre") %>' />
             <asp:RangeValidator ControlToValidate="nombreTextBox" ID="RangeValidator1" runat="server" ErrorMessage="RangeValidator" Type="String" Text="Solo Letras" MaximumValue="z" MinimumValue="a"></asp:RangeValidator>
             
-            <br />
-            direccion:
-            <asp:TextBox ID="direccionTextBox" runat="server" Text='<%# Bind("direccion") %>' />
+                </div>
+            </div>
+        
+              <div class="form-group">
+                    <asp:Label ID="Label2" runat="server"  CssClass="col-md-4 control-label" Text="Dirección:"></asp:Label>
+                  <div class="col-md-4">
+
+                <asp:TextBox ID="direccionTextBox"  CssClass="form-control input-md" runat="server" Text='<%# Bind("direccion") %>' />
             <asp:RangeValidator ControlToValidate="direccionTextBox" ID="RangeValidator2" runat="server" ErrorMessage="RangeValidator" Type="String" Text="Solo Letras" MaximumValue="z" MinimumValue="a"></asp:RangeValidator>
-            <br />
-            correo:
-            <asp:TextBox ID="correoTextBox" runat="server" Text='<%# Bind("correo") %>' />
+           
+                  </div>
+              </div>
+         
+              <div class="form-group">
+                     <asp:Label ID="Label3" runat="server"  CssClass="col-md-4 control-label" Text="Correo:"></asp:Label>
+                  <div class="col-md-4">
+                     <asp:TextBox ID="correoTextBox" CssClass="form-control input-md"  runat="server" Text='<%# Bind("correo") %>' />
             <asp:RegularExpressionValidator  ControlToValidate="correoTextBox" ID="RegularExpressionValidator1" runat="server" ErrorMessage="RegularExpressionValidator" ValidationExpression="\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" Text="Ingrese Email Valido"></asp:RegularExpressionValidator>
-            <br />
-            telefono:
-            <asp:TextBox ID="telefonoTextBox" runat="server" Text='<%# Bind("telefono") %>' />
-            <br />
-            Credito:
-            <asp:TextBox ID="CreditoTextBox" runat="server" Text='<%# Bind("Credito") %>' />
+           
+                  </div>
+              </div>
+
+              <div class="form-group">
+                    <asp:Label ID="Label4" runat="server"  CssClass="col-md-4 control-label" Text="Telefono:"></asp:Label>
+                  <div class="col-md-4">
+                <asp:TextBox ID="telefonoTextBox" CssClass="form-control input-md"  runat="server" Text='<%# Bind("telefono") %>' />
+                  </div>
+              </div>
+            
+              <div class="form-group">
+                   <asp:Label ID="Label5" runat="server"  CssClass="col-md-4 control-label" Text="Crédito:"></asp:Label>
+                  <div class="col-md-4">
+            <asp:TextBox ID="CreditoTextBox" CssClass="form-control input-md" runat="server" Text='<%# Bind("Credito") %>' />
             <asp:RangeValidator ControlToValidate="CreditoTextBox" ID="RangeValidator3" runat="server" ErrorMessage="RangeValidator" Type="Integer" MinimumValue="0" MaximumValue="20000" Text="Numeros entre  0 y 20000"></asp:RangeValidator>
-            <br />
-            Saldo:
-            <asp:TextBox ID="SaldoTextBox" runat="server" Text='<%# Bind("Saldo") %>' />
+           
+                  </div>
+              </div>
+       
+              <div class="form-group">
+                  <asp:Label ID="Label6" runat="server"  CssClass="col-md-4 control-label" Text="Saldo:"></asp:Label>
+                
+                  <div class="col-md-4">
+               <asp:TextBox ID="SaldoTextBox" CssClass="form-control input-md" runat="server" Text='<%# Bind("Saldo") %>' />
             <asp:RangeValidator ControlToValidate="SaldoTextBox" ID="RangeValidator4" runat="server" ErrorMessage="RangeValidator" Type="Integer" MinimumValue="0" MaximumValue="20000" Text="Numeros entre  0 y 20000"></asp:RangeValidator>
-            <br />
-            <asp:Button ID="InsertButton" runat="server" CausesValidation="True" CommandName="Insert" Text="Insertar" />
-            &nbsp;<asp:Button ID="InsertCancelButton" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancelar" />
-        </InsertItemTemplate>
+            
+                  </div>
+              </div>
+
+            <div class="form-group">
+                <asp:Label ID="Label7" runat="server" CssClass="col-md-4 control-label" Text=""></asp:Label>
+                <div class="col-md-4">
+                <asp:Button ID="InsertButton" runat="server" class="btn btn-success" CausesValidation="True" CommandName="Insert" Text="Insertar" />
+          
+             &nbsp;<asp:Button ID="InsertCancelButton"  class="btn btn-danger" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancelar" />
+     
+                </div>
+            </div>
+              </fieldset>
+               </InsertItemTemplate>
         <ItemTemplate>
             id_cliente:
             <asp:Label ID="id_clienteLabel" runat="server" Text='<%# Eval("id_cliente") %>' />

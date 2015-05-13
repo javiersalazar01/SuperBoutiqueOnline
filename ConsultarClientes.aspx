@@ -8,14 +8,19 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
     
     <asp:Panel runat="server">
-        <asp:Label ID="Label1" runat="server" Text="Id Cliente: "></asp:Label>
-        <asp:TextBox ID="clienteid" runat="server"></asp:TextBox>
-        <asp:Label ID="Label2" runat="server" Text="Nombre: "></asp:Label>
-        <asp:TextBox ID="nombreCliente" runat="server"></asp:TextBox>
-        <asp:Button ID="Button1" runat="server" Text="Buscar" OnClick="Button1_Click" />
-        <asp:Button ID="Button2" runat="server" OnClick="Button2_Click" Text="Todos Los Regsitros" />
+        <div class="form-group">
+                  <asp:Label ID="Label1" runat="server" CssClass="col-md-1 control-label" Text="Id Cliente: "></asp:Label>
+                  <asp:TextBox ID="clienteid" CssClass="col-md-1 control-label" runat="server"></asp:TextBox>
+                  <asp:Label ID="Label2" CssClass="col-md-1 control-label" runat="server" Text="Nombre: "></asp:Label>
+                  <asp:TextBox ID="nombreCliente" CssClass="col-md-3 control-label" runat="server"></asp:TextBox>
+                   &nbsp; <asp:Button ID="Button1" CssClass="btn btn-default" runat="server" Text="Buscar" OnClick="Button1_Click" />
+                  <asp:Button ID="Button2" CssClass="btn btn-info" runat="server" OnClick="Button2_Click" Text="Todos Los Regsitros" />
+        </div>
+    
+       
+  
     </asp:Panel>
-    <asp:GridView ID="GridView1" runat="server" DataSourceID="SqlDataSource1" AutoGenerateColumns="False" DataKeyNames="id_cliente" AllowSorting="True" BackColor="White" BorderColor="#DEDFDE" BorderStyle="None" BorderWidth="1px" CellPadding="4" ForeColor="Black" GridLines="Vertical" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" OnRowCancelingEdit="GridView1_RowCancelingEdit" OnRowDeleted="GridView1_RowDeleted" OnRowEditing="GridView1_RowEditing">
+    <asp:GridView ID="GridView1" CssClass="mGrid" runat="server" DataSourceID="SqlDataSource1" AutoGenerateColumns="False" DataKeyNames="id_cliente" AllowSorting="True" BackColor="White" BorderColor="#DEDFDE" BorderStyle="None" BorderWidth="1px" CellPadding="4" ForeColor="Black" GridLines="Vertical" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" OnRowCancelingEdit="GridView1_RowCancelingEdit" OnRowDeleted="GridView1_RowDeleted" OnRowEditing="GridView1_RowEditing">
         <AlternatingRowStyle BackColor="White" />
         <Columns>
             <asp:BoundField DataField="id_cliente" HeaderText="id_cliente" InsertVisible="False" ReadOnly="True" SortExpression="id_cliente" />

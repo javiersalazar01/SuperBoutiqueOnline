@@ -5,7 +5,10 @@
    
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
-    <asp:Label ID="Label1" runat="server" Text="PAGINA DE INICIO. LOGO CHILO"></asp:Label>
-</asp:Content>
+    <div class="imagenfondo">
+        <asp:Image ID="ImagePaginaInicio" runat="server" ImageUrl="~/img/logo.png" Height="239px" Width="473px" ImageAlign="Middle" />
+
+    </div>
+    </asp:Content>
 
 
